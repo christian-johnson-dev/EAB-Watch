@@ -7,3 +7,5 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 app.use(cors());
 require("./routes/sightings.routes")(app);
+app.use(express.json(), express.urlencoded({ extended: true }));
+require("./config/mongoose.config");
