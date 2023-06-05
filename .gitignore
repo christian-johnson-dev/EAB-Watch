@@ -1,0 +1,15 @@
+# Ignore Node_Modules
+node_modules/
+
+# Ignore build artifacts
+build/
+dist/
+*.egg-info/
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.bak
+
