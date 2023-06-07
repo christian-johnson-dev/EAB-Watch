@@ -13,3 +13,4 @@ dist/
 *.tmp
 *.bak
 
+*.DS_Store
