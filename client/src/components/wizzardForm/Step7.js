@@ -1,16 +1,14 @@
 import React from "react";
-import ButtonNext from "./ButtonNext";
-import ButtonPrev from "./ButtonPrev";
 
-const Step2 = () => {
+const Step7 = ({ previous, next }) => {
   // Component Logic
   return (
     <div>
-      <h2>Step2 reporting for duty</h2>
-      <ButtonPrev />
-      <ButtonNext />
+      <h2>Step7 reporting for duty</h2>
+      <button onClick={previous}>Previous</button>
+      <button onClick={next}>Next</button>
     </div>
   );
 };
 
-export default Step2;
+export default Step7;
