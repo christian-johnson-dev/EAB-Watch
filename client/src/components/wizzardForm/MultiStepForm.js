@@ -14,13 +14,35 @@ import Step12 from "./Step12";
 import MultiStepSubmit from "./MultiStepSubmit";
 
 const MultiStepForm = () => {
-  const [formData, setFormData] = React.useState({});
+  const [formData, setFormData] = React.useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    date: new Date().toISOString().slice(0, 10), // set default date to today
+    location: "",
+    latitude: "",
+    longitude: "",
+    isAshTree: false,
+    canopyDieback: false,
+    epicormicShoots: false,
+    woodpecker: false,
+    exitHoles: false,
+    feedingGallery: false,
+    emeraldAshBorer: false,
+    hasSpecimen: false,
+    description: "",
+    images: [],
+    classification: "Emerald Ash Borer",
+    status: "Pending",
+  });
+
   const handleChange = (event) => {
     setFormData({
       ...formData,
-      // Make sure db column names match the name attribute on your form inputs!
       [event.target.name]: event.target.value,
     });
+    console.log(formData);
   };
   const [currentStep, setCurrentStep] = React.useState(1);
   const next = () => {
