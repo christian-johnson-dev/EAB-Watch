@@ -1,12 +1,14 @@
 import React from "react";
+import ButtonNext from "./ButtonNext";
+import ButtonPrev from "./ButtonPrev";
 
-const Step11 = ({ back, next }) => {
+const Step11 = () => {
   // Component Logic
   return (
     <div>
       <h2>Step11 reporting for duty</h2>
-      <button onClick={back}></button>
-      <button onClick={next}></button>
+      <ButtonPrev />
+      <ButtonNext />
     </div>
   );
 };
