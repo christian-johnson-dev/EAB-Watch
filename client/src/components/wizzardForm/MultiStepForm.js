@@ -23,27 +23,45 @@ const MultiStepForm = () => {
     location: "",
     latitude: "",
     longitude: "",
-    isAshTree: false,
+    isAshTree: undefined,
     canopyDieback: false,
     epicormicShoots: false,
     woodpecker: false,
     exitHoles: false,
+    barkSplitting: false,
     feedingGallery: false,
     emeraldAshBorer: false,
     hasSpecimen: false,
-    description: "",
+    comments: "",
     images: [],
     classification: "Emerald Ash Borer",
     status: "Pending",
   });
 
   const handleChange = (event) => {
+    console.log(event.target.name, event.target.value);
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
     });
-    console.log(formData);
   };
+
+  const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    setFormData({ ...formData, [name]: checked });
+  };
+
+  const handleImageChange = (newImages) => {
+    setFormData({
+      ...formData,
+      images: [...formData.images, ...newImages],
+    });
+  };
+
+  React.useEffect(() => {
+    console.log(formData);
+  }, [formData]);
+
   const [currentStep, setCurrentStep] = React.useState(1);
   const next = () => {
     setCurrentStep(currentStep + 1);
@@ -84,8 +102,9 @@ const MultiStepForm = () => {
         <Step4
           next={next}
           previous={previous}
-          handleChange={handleChange}
+          setFormData={setFormData} // pass setFormData as a prop
           formData={formData}
+          setCurrentStep={setCurrentStep} // so we can use it in Step4 to jump to Step6
         />
       );
     case 5:
@@ -103,6 +122,7 @@ const MultiStepForm = () => {
           next={next}
           previous={previous}
           handleChange={handleChange}
+          setFormData={setFormData}
           formData={formData}
         />
       );
@@ -111,7 +131,7 @@ const MultiStepForm = () => {
         <Step7
           next={next}
           previous={previous}
-          handleChange={handleChange}
+          handleCheckboxChange={handleCheckboxChange}
           formData={formData}
         />
       );
@@ -120,7 +140,7 @@ const MultiStepForm = () => {
         <Step8
           next={next}
           previous={previous}
-          handleChange={handleChange}
+          handleCheckboxChange={handleCheckboxChange}
           formData={formData}
         />
       );
@@ -130,6 +150,7 @@ const MultiStepForm = () => {
           next={next}
           previous={previous}
           handleChange={handleChange}
+          handleCheckboxChange={handleCheckboxChange}
           formData={formData}
         />
       );
@@ -138,7 +159,7 @@ const MultiStepForm = () => {
         <Step10
           next={next}
           previous={previous}
-          handleChange={handleChange}
+          handleImageChange={handleImageChange}
           formData={formData}
         />
       );
