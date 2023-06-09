@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const SightingSchema = new mongoose.Schema(
   {
     user: {
-      firstName: { type: String },
-      lastName: { type: String },
+      firstName: { type: String, required: true },
+      lastName: { type: String, required: true },
       email: { type: String, required: true },
       phone: { type: String },
     },
@@ -24,8 +24,15 @@ const SightingSchema = new mongoose.Schema(
       hasSpecimen: { type: Boolean, default: false },
       comments: { type: String },
       images: [{ type: String }],
-      classification: { type: String },
-      status: { type: String },
+      classification: {
+        type: String,
+        default: "pending species classification",
+      },
+      status: {
+        type: String,
+        enum: ["verified", "pending", "reclassified"],
+        default: "pending",
+      },
     },
     adminResponse: {
       responseDate: { type: Date },
