@@ -10,8 +10,6 @@ import Step8 from "./Step8";
 import Step9 from "./Step9";
 import Step10 from "./Step10";
 import Step11 from "./Step11";
-import Step12 from "./Step12";
-import MultiStepSubmit from "./MultiStepSubmit";
 
 const MultiStepForm = () => {
   const [formData, setFormData] = React.useState({
@@ -34,8 +32,6 @@ const MultiStepForm = () => {
     hasSpecimen: false,
     comments: "",
     images: [],
-    classification: "Emerald Ash Borer",
-    status: "Pending",
   });
 
   const handleChange = (event) => {
@@ -163,7 +159,8 @@ const MultiStepForm = () => {
           formData={formData}
         />
       );
-    case 11:
+
+    default:
       return (
         <Step11
           next={next}
@@ -172,18 +169,6 @@ const MultiStepForm = () => {
           formData={formData}
         />
       );
-    case 12:
-      return (
-        <Step12
-          next={next}
-          previous={previous}
-          handleChange={handleChange}
-          formData={formData}
-        />
-      );
-
-    default:
-      return <MultiStepSubmit formData={formData} />;
   }
 };
 
