@@ -1,7 +1,48 @@
 import React from "react";
+import axios from "axios";
 
 const Step11 = ({ formData, previous }) => {
-  // Component Logic
+  const handleSubmit = async () => {
+    try {
+      //* This is where the front end form data (flat) is converted to the back end db schema (nested) and is sent to the server.
+      //! Keep 'data' here within the submit function unless it is needed elsewhere.
+
+      const data = {
+        user: {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+        },
+        sighting: {
+          date: formData.date,
+          location: formData.location,
+          latitude: formData.latitude,
+          longitude: formData.longitude,
+          isAshTree:
+            formData.isAshTree === undefined ? null : formData.isAshTree,
+          canopyDieback: formData.canopyDieback,
+          epicormicShoots: formData.epicormicShoots,
+          woodpecker: formData.woodpecker,
+          exitHoles: formData.exitHoles,
+          feedingGallery: formData.feedingGallery,
+          barkSplitting: formData.barkSplitting,
+          emeraldAshBorer: formData.emeraldAshBorer,
+          hasSpecimen: formData.hasSpecimen,
+          comments: formData.comments,
+          images: formData.images,
+        },
+      };
+      const response = await axios.post(
+        "http://localhost:8000/api/sighting",
+        data,
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <h2>Form Summary</h2>
@@ -26,10 +67,10 @@ const Step11 = ({ formData, previous }) => {
         <strong>Location:</strong> {formData.location}
       </p>
       <p>
-        <strong>Latitude:</strong> {formData.latitude}
+        <strong>Latitude:</strong> {formData.latitude || "--"}
       </p>
       <p>
-        <strong>Longitude:</strong> {formData.longitude}
+        <strong>Longitude:</strong> {formData.longitude || "--"}
       </p>
       <h4>Tree Info & Symptoms</h4>
       <p>
@@ -70,13 +111,14 @@ const Step11 = ({ formData, previous }) => {
       </p>
       <h4>Comments, Images, and Classification</h4>
       <p>
-        <strong>Comments:</strong> {formData.comments}
+        <strong>Comments:</strong> {formData.comments || "--"}
       </p>
       <p>
-        <strong>Images:</strong> {formData.images.length}
+        <strong>Images:</strong> {formData.images.length || "--"}
       </p>
 
       <button onClick={previous}>Previous</button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
