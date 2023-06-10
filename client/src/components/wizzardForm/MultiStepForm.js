@@ -167,6 +167,7 @@ const MultiStepForm = () => {
           previous={previous}
           handleChange={handleChange}
           formData={formData}
+          setCurrentStep={setCurrentStep}
         />
       );
   }
