@@ -11,6 +11,11 @@ const Step4 = ({ formData, setFormData, next, previous }) => {
     width: "100%",
   };
 
+  const defaultCenter = {
+    lat: 45.53077016741708,
+    lng: -122.85460515594484,
+  };
+
   const handleMarkerDragEnd = (event) => {
     const lat = event.latLng.lat();
     const lng = event.latLng.lng();
@@ -55,15 +60,15 @@ const Step4 = ({ formData, setFormData, next, previous }) => {
       <GoogleMap
         zoom={17}
         center={{
-          lat: formData.latitude || 45.53077016741708,
-          lng: formData.longitude || -122.85460515594484,
+          lat: formData.latitude || defaultCenter.lat,
+          lng: formData.longitude || defaultCenter.lng,
         }}
         mapContainerStyle={mapStyles}
       >
         <MarkerF
           position={{
-            lat: formData.latitude || 45.53077016741708,
-            lng: formData.longitude || -122.85460515594484,
+            lat: formData.latitude || defaultCenter.lat,
+            lng: formData.longitude || defaultCenter.lng,
           }}
           draggable={true}
           onDragEnd={handleMarkerDragEnd}
