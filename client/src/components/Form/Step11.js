@@ -7,14 +7,19 @@ const Step11 = ({ formData, previous, setCurrentStep }) => {
       //* This is where the front end form data (flat) is converted to the back end db schema (nested) and is sent to the server.
       //! Keep 'data' here within the submit function unless it is needed elsewhere.
 
-      const data = {
-        user: {
+      const data = new FormData();
+      data.append(
+        "user",
+        JSON.stringify({
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
           phone: formData.phone,
-        },
-        sighting: {
+        }),
+      );
+      data.append(
+        "sighting",
+        JSON.stringify({
           date: formData.date,
           location: formData.location,
           latitude: formData.latitude,
@@ -30,12 +35,19 @@ const Step11 = ({ formData, previous, setCurrentStep }) => {
           emeraldAshBorer: formData.emeraldAshBorer,
           hasSpecimen: formData.hasSpecimen,
           comments: formData.comments,
-          images: formData.images,
-        },
-      };
+        }),
+      );
+
+      formData.images.forEach((image) => {
+        data.append(`images`, image);
+      });
+
       const response = await axios.post(
         "http://localhost:8000/api/sighting",
         data,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        },
       );
       console.log(response.data);
     } catch (error) {
