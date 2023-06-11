@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import axios from "axios";
-import MultiStepForm from "./components/wizzardForm/MultiStepForm";
+import MultiStepForm from "./components/Form/MultiStepForm";
 
 const App = () => {
   return (
