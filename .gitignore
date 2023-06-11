@@ -1,6 +1,8 @@
 # Ignore Node_Modules
 node_modules/
 
+uploads/
+
 # Ignore build artifacts
 build/
 dist/
