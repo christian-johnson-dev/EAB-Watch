@@ -5,6 +5,7 @@ const cors = require("cors");
 
 app.use(cors());
 app.use(express.json(), express.urlencoded({ extended: true }));
+app.use("/uploads", express.static("uploads"));
 
 require("./config/mongoose.config");
 require("./routes/sightings.routes")(app);
