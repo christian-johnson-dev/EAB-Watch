@@ -7,6 +7,11 @@ module.exports.index = (request, response) => {
 };
 //*-------------- CREATE --------------*//
 module.exports.createSighting = (request, response) => {
+  request.body.images = request.files.map((file) => file.filename);
+  request.body.user = JSON.parse(request.body.user);
+  request.body.sighting = JSON.parse(request.body.sighting);
+  request.body.sighting.images = request.body.images;
+
   console.log("request.body", request.body);
   Sighting.create(request.body)
     .then((sighting) => {
