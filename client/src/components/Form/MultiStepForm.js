@@ -156,6 +156,7 @@ const MultiStepForm = () => {
           next={next}
           previous={previous}
           handleImageChange={handleImageChange}
+          setFormData={setFormData}
           formData={formData}
         />
       );
