@@ -20,6 +20,6 @@ module.exports.createSighting = (request, response) => {
     })
     .catch((err) => {
       console.log("err", err);
-      response.status(400).json(err);
+      response.status(400).json({ error: err.message });
     });
 };
