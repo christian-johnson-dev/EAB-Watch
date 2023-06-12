@@ -25,8 +25,8 @@ client
 │ │ ├── Step7.js (Completed) Checkboxes for secondary indications
 │ │ ├── Step8.js (Completed) Checkboxes for primary indications
 │ │ ├── Step9.js (Completed, validation messages needed) Text input of desription and checkbox for hasSample
-│ │ ├── Step10.js (Pending, image input complete, needs image upload)
-│ │ └── Step11.js (Completed) Summary a& Submit. Note: succesful post to DB with omission of images.
+│ │ ├── Step10.js (Completed)Image upload with thumbnails to edit selection
+│ │ └── Step11.js (Completed) Summary & Submit. Note: succesful post to DB with omission of images.
 │ ├── Navigation
 │ │ ├── Navbar.js (Not started, only empty placeholder component)
 │ │ └── NavItem.js (Not started, only empty placeholder component)
