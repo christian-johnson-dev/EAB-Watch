@@ -1,14 +1,6 @@
 import React from "react";
 
-const Step6 = ({ setFormData, formData, previous, next }) => {
-  const handleAshTreeChange = (e) => {
-    const value = e.target.value;
-    setFormData({
-      ...formData,
-      isAshTree:
-        value === "true" ? true : value === "false" ? false : undefined,
-    });
-  };
+const Step6 = ({ formData, handleAshTreeChange, previous, next }) => {
   return (
     <div>
       <h2>Ash Tree Identification</h2>

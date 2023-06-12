@@ -1,10 +1,12 @@
 import React from "react";
 
-const Step8 = ({ formData, handleCheckboxChange, previous, next }) => {
-  const handleLabelClick = (e, name) => {
-    e.preventDefault();
-    handleCheckboxChange({ target: { name, checked: !formData[name] } });
-  };
+const Step8 = ({
+  formData,
+  handleCheckboxChange,
+  handleLabelClick,
+  previous,
+  next,
+}) => {
   return (
     <div>
       <h2>Primary Indicators</h2>
