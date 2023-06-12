@@ -54,6 +54,20 @@ const MultiStepForm = () => {
     });
   };
 
+  const handleAshTreeChange = (event) => {
+    const value = event.target.value;
+    setFormData({
+      ...formData,
+      isAshTree:
+        value === "true" ? true : value === "false" ? false : undefined,
+    });
+  };
+
+  const handleLabelClick = (event, name) => {
+    event.preventDefault();
+    handleCheckboxChange({ target: { name, checked: !formData[name] } });
+  };
+
   React.useEffect(() => {
     console.log(formData);
   }, [formData]);
@@ -117,8 +131,7 @@ const MultiStepForm = () => {
         <Step6
           next={next}
           previous={previous}
-          handleChange={handleChange}
-          setFormData={setFormData}
+          handleAshTreeChange={handleAshTreeChange}
           formData={formData}
         />
       );
@@ -136,6 +149,7 @@ const MultiStepForm = () => {
         <Step8
           next={next}
           previous={previous}
+          handleLabelClick={handleLabelClick}
           handleCheckboxChange={handleCheckboxChange}
           formData={formData}
         />
