@@ -1,6 +1,15 @@
 import React from "react";
+import FormNavButtons from "../Shared/FormNavButtons";
 
-const Step6 = ({ formData, handleAshTreeChange, previous, next }) => {
+const Step6 = ({
+  formData,
+  handleAshTreeChange,
+  summary,
+  returning,
+  currentStep,
+  previous,
+  next,
+}) => {
   return (
     <div>
       <h2>Ash Tree Identification</h2>
@@ -59,8 +68,13 @@ const Step6 = ({ formData, handleAshTreeChange, previous, next }) => {
         />
         <label htmlFor="ashTreeNotSure">Not Sure</label>
       </div>
-      <button onClick={previous}>Previous</button>
-      <button onClick={next}>Next</button>
+      <FormNavButtons
+        previous={previous}
+        next={next}
+        currentStep={currentStep}
+        returning={returning}
+        summary={summary}
+      />
     </div>
   );
 };

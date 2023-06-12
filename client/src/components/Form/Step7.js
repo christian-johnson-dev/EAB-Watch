@@ -1,6 +1,15 @@
 import React from "react";
+import FormNavButtons from "../Shared/FormNavButtons";
 
-const Step7 = ({ formData, handleCheckboxChange, previous, next }) => {
+const Step7 = ({
+  formData,
+  handleCheckboxChange,
+  currentStep,
+  summary,
+  returning,
+  previous,
+  next,
+}) => {
   // Component Logic
   return (
     <div>
@@ -36,8 +45,13 @@ const Step7 = ({ formData, handleCheckboxChange, previous, next }) => {
         <label htmlFor="woodpecker">Woodpecker</label>
       </div>
 
-      <button onClick={previous}>Previous</button>
-      <button onClick={next}>Next</button>
+      <FormNavButtons
+        previous={previous}
+        next={next}
+        returning={returning}
+        summary={summary}
+        currentStep={currentStep}
+      />
     </div>
   );
 };

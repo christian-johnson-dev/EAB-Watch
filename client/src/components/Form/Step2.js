@@ -1,7 +1,15 @@
 import React from "react";
+import FormNavButtons from "../Shared/FormNavButtons";
 
-const Step2 = ({ formData, handleChange, previous, next }) => {
-  // Component Logic
+const Step2 = ({
+  formData,
+  handleChange,
+  currentStep,
+  previous,
+  next,
+  returning,
+  summary,
+}) => {
   return (
     <div>
       <h2>Contact Info</h2>
@@ -34,8 +42,13 @@ const Step2 = ({ formData, handleChange, previous, next }) => {
         onChange={handleChange}
       />
 
-      <button onClick={previous}>Previous</button>
-      <button onClick={next}>Next</button>
+      <FormNavButtons
+        previous={previous}
+        next={next}
+        returning={returning}
+        summary={summary}
+        currentStep={currentStep}
+      />
     </div>
   );
 };

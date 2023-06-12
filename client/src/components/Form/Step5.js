@@ -1,6 +1,15 @@
 import React from "react";
+import FormNavButtons from "../Shared/FormNavButtons";
 
-const Step5 = ({ formData, handleChange, previous, next }) => {
+const Step5 = ({
+  currentStep,
+  formData,
+  handleChange,
+  summary,
+  returning,
+  previous,
+  next,
+}) => {
   // Component Logic
   return (
     <div>
@@ -11,9 +20,13 @@ const Step5 = ({ formData, handleChange, previous, next }) => {
         value={formData.location}
         onChange={handleChange}
       />
-
-      <button onClick={previous}>Previous</button>
-      <button onClick={next}>Next</button>
+      <FormNavButtons
+        previous={previous}
+        next={next}
+        returning={returning}
+        summary={summary}
+        currentStep={currentStep}
+      />
     </div>
   );
 };

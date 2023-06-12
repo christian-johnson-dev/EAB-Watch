@@ -68,10 +68,6 @@ const MultiStepForm = () => {
     handleCheckboxChange({ target: { name, checked: !formData[name] } });
   };
 
-  React.useEffect(() => {
-    console.log(formData);
-  }, [formData]);
-
   const [currentStep, setCurrentStep] = React.useState(1);
   const next = () => {
     setCurrentStep(currentStep + 1);
@@ -80,12 +76,24 @@ const MultiStepForm = () => {
     setCurrentStep(currentStep - 1);
   };
 
+  const [returning, setReturning] = React.useState(false);
+
+  const summary = () => {
+    setReturning(false);
+    setCurrentStep(11); // display summary/submit (i.e. Step11)
+  };
+
+  React.useEffect(() => {
+    console.log(formData);
+  }, [formData]);
+
   switch (currentStep) {
     case 1:
       return (
         <Step1
           next={next}
           handleChange={handleChange}
+          currentStep={currentStep}
           formData={formData}
         />
       );
@@ -94,6 +102,9 @@ const MultiStepForm = () => {
         <Step2
           next={next}
           previous={previous}
+          currentStep={currentStep}
+          returning={returning}
+          summary={summary}
           handleChange={handleChange}
           formData={formData}
         />
@@ -103,6 +114,9 @@ const MultiStepForm = () => {
         <Step3
           next={next}
           previous={previous}
+          currentStep={currentStep}
+          returning={returning}
+          summary={summary}
           handleChange={handleChange}
           formData={formData}
         />
@@ -112,7 +126,9 @@ const MultiStepForm = () => {
         <Step4
           next={next}
           previous={previous}
-          setFormData={setFormData} // pass setFormData as a prop
+          returning={returning}
+          summary={summary}
+          setFormData={setFormData}
           formData={formData}
           setCurrentStep={setCurrentStep} // so we can use it in Step4 to jump to Step6
         />
@@ -122,6 +138,9 @@ const MultiStepForm = () => {
         <Step5
           next={next}
           previous={previous}
+          currentStep={currentStep}
+          returning={returning}
+          summary={summary}
           handleChange={handleChange}
           formData={formData}
         />
@@ -131,6 +150,8 @@ const MultiStepForm = () => {
         <Step6
           next={next}
           previous={previous}
+          returning={returning}
+          summary={summary}
           handleAshTreeChange={handleAshTreeChange}
           formData={formData}
         />
@@ -140,6 +161,9 @@ const MultiStepForm = () => {
         <Step7
           next={next}
           previous={previous}
+          currentStep={currentStep}
+          returning={returning}
+          summary={summary}
           handleCheckboxChange={handleCheckboxChange}
           formData={formData}
         />
@@ -149,6 +173,9 @@ const MultiStepForm = () => {
         <Step8
           next={next}
           previous={previous}
+          currentStep={currentStep}
+          returning={returning}
+          summary={summary}
           handleLabelClick={handleLabelClick}
           handleCheckboxChange={handleCheckboxChange}
           formData={formData}
@@ -159,6 +186,9 @@ const MultiStepForm = () => {
         <Step9
           next={next}
           previous={previous}
+          currentStep={currentStep}
+          returning={returning}
+          summary={summary}
           handleChange={handleChange}
           handleCheckboxChange={handleCheckboxChange}
           formData={formData}
@@ -169,6 +199,9 @@ const MultiStepForm = () => {
         <Step10
           next={next}
           previous={previous}
+          currentStep={currentStep}
+          returning={returning}
+          summary={summary}
           handleImageChange={handleImageChange}
           setFormData={setFormData}
           formData={formData}
@@ -180,9 +213,12 @@ const MultiStepForm = () => {
         <Step11
           next={next}
           previous={previous}
+          currentStep={currentStep}
           handleChange={handleChange}
           formData={formData}
           setCurrentStep={setCurrentStep}
+          setReturning={setReturning}
+          returning={returning}
         />
       );
   }

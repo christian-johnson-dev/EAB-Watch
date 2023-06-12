@@ -1,11 +1,15 @@
 import React from "react";
+import FormNavButtons from "../Shared/FormNavButtons";
 
 const Step10 = ({
-  previous,
-  next,
   handleImageChange,
   setFormData,
   formData,
+  summary,
+  currentStep,
+  returning,
+  previous,
+  next,
 }) => {
   const { images } = formData;
   const selectedImages = images.map((image) => URL.createObjectURL(image));
@@ -69,7 +73,13 @@ const Step10 = ({
       />
 
       <button onClick={previous}>Previous</button>
-      <button onClick={next}>Next</button>
+      <FormNavButtons
+        previous={previous}
+        next={next}
+        returning={returning}
+        summary={summary}
+        currentStep={currentStep}
+      />
     </div>
   );
 };

@@ -1,9 +1,13 @@
 import React from "react";
+import FormNavButtons from "../Shared/FormNavButtons";
 
 const Step8 = ({
   formData,
   handleCheckboxChange,
   handleLabelClick,
+  summary,
+  returning,
+  currentStep,
   previous,
   next,
 }) => {
@@ -56,8 +60,13 @@ const Step8 = ({
         </label>
       </div>
 
-      <button onClick={previous}>Previous</button>
-      <button onClick={next}>Next</button>
+      <FormNavButtons
+        previous={previous}
+        next={next}
+        returning={returning}
+        summary={summary}
+        currentStep={currentStep}
+      />
     </div>
   );
 };

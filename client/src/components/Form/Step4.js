@@ -1,7 +1,16 @@
 import React from "react";
+import FormNavButtons from "../Shared/FormNavButtons";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 
-const Step4 = ({ formData, setFormData, next, previous }) => {
+const Step4 = ({
+  formData,
+  setFormData,
+  summary,
+  returning,
+  currentStep,
+  next,
+  previous,
+}) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
@@ -77,8 +86,13 @@ const Step4 = ({ formData, setFormData, next, previous }) => {
       {/* Display coordinates */}
       <p>Latitude: {formData.latitude}</p>
       <p>Longitude: {formData.longitude}</p>
-      <button onClick={next}>Next</button>
-      <button onClick={previous}>Previous</button>
+      <FormNavButtons
+        previous={previous}
+        next={next}
+        returning={returning}
+        summary={summary}
+        currentStep={currentStep}
+      />
     </div>
   );
 };
