@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Navbar from "./components/Navigation/Navbar";
 import WelcomePage from "./components/Pages/WelcomePage";
 import AboutPage from "./components/Pages/AboutPage";
 import EABInfoPage from "./components/Pages/EABInfoPage";
@@ -12,7 +13,7 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <h1>React App</h1>
+        <Navbar />
 
         <Routes>
           <Route
