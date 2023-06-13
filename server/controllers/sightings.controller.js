@@ -23,3 +23,30 @@ module.exports.createSighting = (request, response) => {
       response.status(400).json({ error: err.message });
     });
 };
+
+//*-------------- READ ALL --------------*//
+module.exports.getAllSightings = (request, response) => {
+  Sighting.find({})
+    .then((sightings) => response.json(sightings))
+    .catch((err) => response.status(500).json({ error: err.message }));
+};
+
+//*-------------- UPDATE --------------*//
+module.exports.updateSighting = (request, response) => {
+  const { id } = request.params;
+  const { adminResponse } = request.body;
+  Sighting.findByIdAndUpdate(
+    id,
+    { "adminResponse.response": adminResponse },
+    { new: true, useFindAndModify: false },
+  )
+    .then((sighting) => response.json(sighting))
+    .catch((err) => response.status(500).json({ error: err.message }));
+};
+
+//*-------------- DELETE --------------*//
+module.exports.deleteSighting = (request, response) => {
+  Sighting.findByIdAndDelete(request.params.id)
+    .then(() => response.json({ success: true }))
+    .catch((err) => response.status(500).json({ error: err.message }));
+};
