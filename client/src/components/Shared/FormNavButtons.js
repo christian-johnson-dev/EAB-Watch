@@ -9,12 +9,31 @@ const FormNavButtons = ({
 }) => {
   // Component Logic
   return (
-    <div>
+    <div className="form-nav-container">
       {currentStep !== 2 && !returning && (
-        <button onClick={previous}>Previous</button>
+        <button
+          className="form-nav-button"
+          onClick={previous}
+        >
+          Previous
+        </button>
       )}
-      {currentStep !== 11 && !returning && <button onClick={next}>Next</button>}
-      {returning && <button onClick={summary}>Return to Summary</button>}
+      {currentStep !== 11 && !returning && (
+        <button
+          onClick={next}
+          className="form-nav-button"
+        >
+          Next
+        </button>
+      )}
+      {returning && (
+        <button
+          onClick={summary}
+          className="form-nav-button"
+        >
+          Return to Summary
+        </button>
+      )}
     </div>
   );
 };
