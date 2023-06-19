@@ -2,9 +2,9 @@ import React from "react";
 import NavItem from "./NavItem";
 
 const Navbar = () => {
-  // Component Logic
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-teal p-6">
+    <nav className="flex shadow-md items-center justify-between flex-wrap bg-teal-600 p-6">
       <div className="flex items-center flex-no-shrink text-white mr-6">
         <span className="font-semibold text-x1 tracking-tight">EAB Watch</span>
       </div>
