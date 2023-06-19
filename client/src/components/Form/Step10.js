@@ -28,58 +28,60 @@ const Step10 = ({
 
   return (
     <div>
-      <h2>Images upload</h2>
-      {/* Thumbnails */}
-      <div className="thumbnails">
-        {selectedImages.map((image, index) => (
-          <div
-            key={index}
-            style={{ display: "inline-block", position: "relative" }}
-          >
-            <img
-              src={image}
-              alt="thumbnail"
-              style={{ width: "100px" }}
-            />
+      <div className="card">
+        <h2>Images upload</h2>
+        {/* Thumbnails */}
+        <div className="thumbnails">
+          {selectedImages.map((image, index) => (
             <div
-              style={{
-                position: "absolute",
-                right: 0,
-                top: 0,
-                cursor: "pointer",
-                background: "red",
-                color: "white",
-                borderRadius: "50%",
-                width: "20px",
-                height: "20px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                rotate: "45deg",
-              }}
-              onClick={() => handleRemoveImage(index)}
+              key={index}
+              style={{ display: "inline-block", position: "relative" }}
             >
-              +
+              <img
+                src={image}
+                alt="thumbnail"
+                style={{ width: "100px" }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  right: 0,
+                  top: 0,
+                  cursor: "pointer",
+                  background: "red",
+                  color: "white",
+                  borderRadius: "50%",
+                  width: "20px",
+                  height: "20px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  rotate: "45deg",
+                }}
+                onClick={() => handleRemoveImage(index)}
+              >
+                +
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <input
-        type="file"
-        name="images"
-        multiple
-        accept="image/jpeg, image/png, image/webp"
-        onChange={handleImageUpload}
-      />
+          ))}
+        </div>
+        <input
+          type="file"
+          name="images"
+          multiple
+          accept="image/jpeg, image/png, image/webp"
+          onChange={handleImageUpload}
+        />
 
-      <button onClick={previous}>Previous</button>
-      <FormNavButtons
-        previous={previous}
-        next={next}
-        returning={returning}
-        summary={summary}
-        currentStep={currentStep}
-      />
+        <button onClick={previous}>Previous</button>
+        <FormNavButtons
+          previous={previous}
+          next={next}
+          returning={returning}
+          summary={summary}
+          currentStep={currentStep}
+        />
+      </div>
     </div>
   );
 };

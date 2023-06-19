@@ -7,7 +7,7 @@ const NavItem = ({ to, children }) => {
     <div className="mr-4">
       <Link
         to={to}
-        className="text-lg no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold"
+        className="underline-expand text-teal-400"
       >
         {children}
       </Link>

@@ -66,165 +66,169 @@ const Step11 = ({
 
   return (
     <div>
-      <h2>Form Summary</h2>
-      <div
-        onClick={() => {
-          setCurrentStep(2);
-          setReturning(true);
-        }}
-      >
-        <h4>Contact Info</h4>
-        <p>
-          <strong>First Name:</strong> {formData.firstName}
-        </p>
-        <p>
-          <strong>Last Name:</strong> {formData.lastName}
-        </p>
-        <p>
-          <strong>Email:</strong> {formData.email}
-        </p>
-        <p>
-          <strong>Phone:</strong> {formData.phone || "--"}
-        </p>
-      </div>
+      <div className="card">
+        <h2>Form Summary</h2>
+        <div
+          onClick={() => {
+            setCurrentStep(2);
+            setReturning(true);
+          }}
+        >
+          <h4>Contact Info</h4>
+          <p>
+            <strong>First Name:</strong> {formData.firstName}
+          </p>
+          <p>
+            <strong>Last Name:</strong> {formData.lastName}
+          </p>
+          <p>
+            <strong>Email:</strong> {formData.email}
+          </p>
+          <p>
+            <strong>Phone:</strong> {formData.phone || "--"}
+          </p>
+        </div>
 
-      <h4>Sight date and location</h4>
-      <p
-        onClick={() => {
-          setCurrentStep(3);
-          setReturning(true);
-        }}
-      >
-        <strong>Date:</strong> {formData.date}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(5);
-          setReturning(true);
-        }}
-      >
-        <strong>Location:</strong> {formData.location}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(4);
-          setReturning(true);
-        }}
-      >
-        <strong>Latitude:</strong> {formData.latitude || "--"}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(4);
-          setReturning(true);
-        }}
-      >
-        <strong>Longitude:</strong> {formData.longitude || "--"}
-      </p>
-      <h4>Tree Info & Symptoms</h4>
-      <p
-        onClick={() => {
-          setCurrentStep(6);
-          setReturning(true);
-        }}
-      >
-        <strong>Is Ash Tree:</strong>{" "}
-        {formData.isAshTree === undefined
-          ? "Not sure"
-          : formData.isAshTree
-          ? "Yes"
-          : "No"}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(7);
-          setReturning(true);
-        }}
-      >
-        <strong>Canopy Dieback:</strong> {formData.canopyDieback ? "Yes" : "No"}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(7);
-          setReturning(true);
-        }}
-      >
-        <strong>Epicormic Shoots:</strong>{" "}
-        {formData.epicormicShoots ? "Yes" : "No"}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(7);
-          setReturning(true);
-        }}
-      >
-        <strong>Increased Woodpecker Activity:</strong>{" "}
-        {formData.woodpecker ? "Yes" : "No"}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(8);
-          setReturning(true);
-        }}
-      >
-        <strong>Exit Holes:</strong> {formData.exitHoles ? "Yes" : "No"}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(8);
-          setReturning(true);
-        }}
-      >
-        <strong>Bark Splitting:</strong> {formData.barkSplitting ? "Yes" : "No"}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(8);
-          setReturning(true);
-        }}
-      >
-        <strong>Feeding Gallery:</strong>{" "}
-        {formData.feedingGallery ? "Yes" : "No"}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(8);
-          setReturning(true);
-        }}
-      >
-        <strong>Emerald Ash Borer:</strong>{" "}
-        {formData.emeraldAshBorer ? "Yes" : "No"}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(9);
-          setReturning(true);
-        }}
-      >
-        <strong>Has Specimen:</strong> {formData.hasSpecimen ? "Yes" : "No"}
-      </p>
-      <h4>Comments, Images, and Classification</h4>
-      <p
-        onClick={() => {
-          setCurrentStep(9);
-          setReturning(true);
-        }}
-      >
-        <strong>Comments:</strong> {formData.comments || "--"}
-      </p>
-      <p
-        onClick={() => {
-          setCurrentStep(10);
-          setReturning(true);
-        }}
-      >
-        <strong>Images:</strong> {formData.images.length || "--"}
-      </p>
-      <button onClick={handleSubmit}>Submit</button>
-      <FormNavButtons
-        previous={previous}
-        currentStep={currentStep}
-      />
+        <h4>Sight date and location</h4>
+        <p
+          onClick={() => {
+            setCurrentStep(3);
+            setReturning(true);
+          }}
+        >
+          <strong>Date:</strong> {formData.date}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(5);
+            setReturning(true);
+          }}
+        >
+          <strong>Location:</strong> {formData.location}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(4);
+            setReturning(true);
+          }}
+        >
+          <strong>Latitude:</strong> {formData.latitude || "--"}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(4);
+            setReturning(true);
+          }}
+        >
+          <strong>Longitude:</strong> {formData.longitude || "--"}
+        </p>
+        <h4>Tree Info & Symptoms</h4>
+        <p
+          onClick={() => {
+            setCurrentStep(6);
+            setReturning(true);
+          }}
+        >
+          <strong>Is Ash Tree:</strong>{" "}
+          {formData.isAshTree === undefined
+            ? "Not sure"
+            : formData.isAshTree
+            ? "Yes"
+            : "No"}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(7);
+            setReturning(true);
+          }}
+        >
+          <strong>Canopy Dieback:</strong>{" "}
+          {formData.canopyDieback ? "Yes" : "No"}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(7);
+            setReturning(true);
+          }}
+        >
+          <strong>Epicormic Shoots:</strong>{" "}
+          {formData.epicormicShoots ? "Yes" : "No"}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(7);
+            setReturning(true);
+          }}
+        >
+          <strong>Increased Woodpecker Activity:</strong>{" "}
+          {formData.woodpecker ? "Yes" : "No"}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(8);
+            setReturning(true);
+          }}
+        >
+          <strong>Exit Holes:</strong> {formData.exitHoles ? "Yes" : "No"}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(8);
+            setReturning(true);
+          }}
+        >
+          <strong>Bark Splitting:</strong>{" "}
+          {formData.barkSplitting ? "Yes" : "No"}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(8);
+            setReturning(true);
+          }}
+        >
+          <strong>Feeding Gallery:</strong>{" "}
+          {formData.feedingGallery ? "Yes" : "No"}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(8);
+            setReturning(true);
+          }}
+        >
+          <strong>Emerald Ash Borer:</strong>{" "}
+          {formData.emeraldAshBorer ? "Yes" : "No"}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(9);
+            setReturning(true);
+          }}
+        >
+          <strong>Has Specimen:</strong> {formData.hasSpecimen ? "Yes" : "No"}
+        </p>
+        <h4>Comments, Images, and Classification</h4>
+        <p
+          onClick={() => {
+            setCurrentStep(9);
+            setReturning(true);
+          }}
+        >
+          <strong>Comments:</strong> {formData.comments || "--"}
+        </p>
+        <p
+          onClick={() => {
+            setCurrentStep(10);
+            setReturning(true);
+          }}
+        >
+          <strong>Images:</strong> {formData.images.length || "--"}
+        </p>
+        <button onClick={handleSubmit}>Submit</button>
+        <FormNavButtons
+          previous={previous}
+          currentStep={currentStep}
+        />
+      </div>
     </div>
   );
 };

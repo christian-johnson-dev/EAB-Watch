@@ -16,7 +16,7 @@ const Step4 = ({
   });
 
   const mapStyles = {
-    height: "50vh",
+    height: "45vh",
     width: "100%",
   };
 
@@ -65,34 +65,42 @@ const Step4 = ({
   if (!isLoaded) return "Loading Maps";
   return (
     <div>
-      <h2>Where did you make this sighting?</h2>
-      <GoogleMap
-        zoom={17}
-        center={{
-          lat: formData.latitude || defaultCenter.lat,
-          lng: formData.longitude || defaultCenter.lng,
-        }}
-        mapContainerStyle={mapStyles}
-      >
-        <MarkerF
-          position={{
-            lat: formData.latitude || defaultCenter.lat,
-            lng: formData.longitude || defaultCenter.lng,
-          }}
-          draggable={true}
-          onDragEnd={handleMarkerDragEnd}
+      <div className="card">
+        <div className="heading-container">
+          <p className="step-heading">Section 3 of 5:</p>
+          <h3 className="form-heading">
+            Location <span>map input</span>
+          </h3>
+        </div>
+        <div className="content-container">
+          <GoogleMap
+            className=""
+            zoom={17}
+            center={{
+              lat: formData.latitude || defaultCenter.lat,
+              lng: formData.longitude || defaultCenter.lng,
+            }}
+            mapContainerStyle={mapStyles}
+          >
+            <MarkerF
+              position={{
+                lat: formData.latitude || defaultCenter.lat,
+                lng: formData.longitude || defaultCenter.lng,
+              }}
+              draggable={true}
+              onDragEnd={handleMarkerDragEnd}
+            />
+          </GoogleMap>
+        </div>
+
+        <FormNavButtons
+          previous={previous}
+          next={next}
+          returning={returning}
+          summary={summary}
+          currentStep={currentStep}
         />
-      </GoogleMap>
-      {/* Display coordinates */}
-      <p>Latitude: {formData.latitude}</p>
-      <p>Longitude: {formData.longitude}</p>
-      <FormNavButtons
-        previous={previous}
-        next={next}
-        returning={returning}
-        summary={summary}
-        currentStep={currentStep}
-      />
+      </div>
     </div>
   );
 };
