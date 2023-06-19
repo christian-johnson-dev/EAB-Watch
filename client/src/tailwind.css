@@ -1,3 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;700&display=swap");
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@layer utilities {
+  .underline-expand {
+    position: relative;
+    padding-bottom: 0.5rem;
+    /* background-color: #000; */
+  }
+
+  .underline-expand::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    border-top: 2px solid currentColor;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .underline-expand:hover::after {
+    opacity: 0.9;
+    left: 10%;
+    right: 10%;
+  }
+  .negative,
+  .positive {
+    @apply rounded text-light text-[11px] px-2 py-1 tracking-wider whitespace-nowrap;
+  }
+  .negative {
+    @apply bg-reclassified;
+  }
+  .positive {
+    @apply bg-pending;
+  }
+}
+
+@layer components {
+  /* =========== HEADER ========== */
+  /* -- Branding ---*/
+  .logo {
+    @apply h-10 md:h-16 mr-3;
+  }
+  .company-name {
+    @apply font-sans font-medium  
+    text-3xl md:text-5xl lg:text-6xl 
+    text-light;
+  }
+  /* -- Hamburger Button -- */
+  .hamburger-button {
+    @apply flex items-center 
+    px-3 py-2 
+    border rounded-lg
+    text-light border-light
+    hover:text-teal-200 hover:border-teal-200;
+  }
+
+  /* =========== FORM - Card ========== */
+  .card {
+    @apply relative
+    w-4/5 md:w-[550px] lg:w-[650px] xl:w-[750px] min-h-[600px]
+    flex flex-col
+    mx-auto mt-8
+    px-20 py-20 bg-light rounded-3xl shadow-lg overflow-hidden;
+  }
+  .card-cancel {
+    @apply absolute top-7 right-8 bg-dark px-4 py-2 text-light text-xs rounded-full shadow-md;
+  }
+  /* =========== FORM - Content ========== */
+  /* === Top === */
+  .heading-continer {
+    @apply border-b-2 mb-8 pb-4;
+  }
+  /* === Middle === */
+  .content-container {
+    @apply flex flex-grow justify-center items-center;
+  }
+  .input-label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+  .validation-message {
+    @apply block text-sm font-medium text-red-500;
+  }
+  .text-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+  /* === Bottom (nav) === */
+  .form-nav-container {
+    @apply flex justify-between items-center mt-12 gap-12;
+  }
+  .form-nav-button {
+    @apply flex flex-grow bg-dark text-light items-center justify-center py-4 rounded-md shadow-md hover:bg-gray-800 transition-all duration-200 ease-in-out;
+  }
+  /* =========== SIGHTINGS PAGE ========== */
+
+  /* === Map Filters === */
+  .marker-toggle-tab {
+    @apply hidden  bg-dark md:flex gap-4 justify-center  mx-auto  px-4 pt-3 rounded-t-[30px];
+  }
+
+  .marker-toggle {
+    @apply flex items-center 
+    gap-1 md:gap-2 lg:gap-3 
+    py-1.5 px-2 md:py-2 
+    uppercase 
+    text-xs md:text-sm rounded-full;
+  }
+  .select-filter {
+    @apply py-2 px-6 mb-1 max-w-fit rounded-full;
+  }
+  .report-button-container {
+    @apply bg-dark rounded-t-full px-3 pt-3;
+  }
+  .report-button {
+    @apply flex items-center justify-center w-32 h-32 rounded-full bg-red-500 text-white font-bold text-xl uppercase tracking-wider;
+  }
+
+  /* =========== SIGHTING MODAL ========== */
+  .carousel {
+    @apply bg-gray-300 py-2;
+  }
+  .tag-section {
+    @apply px-4 border border-dark relative py-4 mt-4;
+  }
+  .tag-section-label {
+    @apply uppercase absolute top-[-12px] left-[12px] bg-light px-2;
+  }
+  .indicators {
+    @apply flex flex-wrap gap-2;
+  }
+}
