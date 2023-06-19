@@ -1,18 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
 import Navbar from "./components/Navigation/Navbar";
-import WelcomePage from "./components/Pages/WelcomePage";
-import AboutPage from "./components/Pages/AboutPage";
-import EABInfoPage from "./components/Pages/EABInfoPage";
-import LearnToReportPage from "./components/Pages/LearnToReportPage";
-import ReportPage from "./components/Pages/ReportPage";
-import SightingsPage from "./components/Pages/SightingsPage";
+import WelcomePage from "./Pages/WelcomePage";
+import AboutPage from "./Pages/AboutPage";
+import EABInfoPage from "./Pages/EABInfoPage";
+import LearnToReportPage from "./Pages/LearnToReportPage";
+import ReportPage from "./Pages/ReportPage";
+import SightingsPage from "./Pages/SightingsPage";
 
 const App = () => {
   return (
     <Router>
-      <div className="App">
+      <div className=" bg-dark h-screen flex flex-col">
         <Navbar />
 
         <Routes>
