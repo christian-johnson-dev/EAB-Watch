@@ -53,6 +53,7 @@ const SightingModal = ({
           <h2 className="uppercase text-3xl">
             {selectedSighting.sighting.classification}
           </h2>
+          {/* If there are images, render a carousel to display them */}
           {selectedSighting.sighting.images.length > 0 && (
             <Carousel
               className={".carousel"}
@@ -100,9 +101,17 @@ const SightingModal = ({
                 className="w-full h-32 border-2 border-gray-300 rounded-md resize-none p-2"
               />
               <button
-                onClick={() =>
-                  updateSighting(selectedSighting._id, adminResponse)
-                }
+                onClick={async () => {
+                  // Update the admin.response field in the DB
+                  updateSighting(selectedSighting._id, adminResponse);
+                  // Update selectedSighting with new admin response
+                  setSelectedSighting((prev) => ({
+                    ...prev,
+                    adminResponse: { response: adminResponse },
+                  }));
+                  // Toggle from update-section to read-section
+                  setUpdateSectionActive(false);
+                }}
               >
                 Update admin response
               </button>
@@ -215,6 +224,10 @@ const SightingModal = ({
               <div className="tag-section">
                 <h4 className="tag-section-label">Comments</h4>
                 <p>{selectedSighting.sighting.comments || "--"}</p>
+              </div>
+              <div className="tag-section">
+                <h4 className="tag-section-label">response</h4>
+                <p>{selectedSighting.adminResponse?.response || "--"}</p>
               </div>
             </div>
           )}
