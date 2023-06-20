@@ -36,6 +36,16 @@ const Step4 = ({
       longitude: lng,
     });
   };
+  const handleMapClick = (event) => {
+    const lat = event.latLng.lat();
+    const lng = event.latLng.lng();
+
+    setFormData({
+      ...formData,
+      latitude: lat,
+      longitude: lng,
+    });
+  };
 
   React.useEffect(() => {
     if (!formData.latitude && !formData.longitude) {
@@ -88,6 +98,7 @@ const Step4 = ({
               lng: formData.longitude || defaultCenter.lng,
             }}
             mapContainerStyle={mapStyles}
+            onClick={handleMapClick}
           >
             <MarkerF
               position={{
