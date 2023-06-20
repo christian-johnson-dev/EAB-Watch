@@ -2,7 +2,7 @@ import React from "react";
 
 const StatusToggle = ({ selectedStatus, setSelectedStatus }) => {
   return (
-    <div>
+    <div className="mx-auto flex">
       <div className="marker-toggle-tab">
         <label className="bg-light text-dark marker-toggle">
           <input
