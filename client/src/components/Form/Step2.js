@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Step2 = ({
   formData,
-  handleChange,
+  handleChange, //* on v2 handleChange should be on the component so it can be customized for each field.  Would have been nice to be able to have trim on some fields and not others
   currentStep,
   previous,
   next,
@@ -15,24 +15,26 @@ const Step2 = ({
   const [touched, setTouched] = React.useState({});
 
   const validate = () => {
-    let tempErrors = {};
-    let formIsValid = true;
+    let tempErrors = {}; // tempErrors is an object that will hold the validation error messages for each field
+    let formIsValid = true; // formIsValid is a boolean that will be set to false if any field is invalid
     tempErrors.firstName =
-      formData.firstName.trim() !== "" ? "" : "First Name is required";
+      formData.firstName.trim() !== "" ? "" : "First Name is required"; // If the trimmed value of firstName is not empty "", then error message ="".  Else, error message = "First Name is required"
     tempErrors.lastName =
-      formData.lastName.trim() !== "" ? "" : "Last Name is required";
-    // Nested ternary operator for is required and is valid
+      formData.lastName.trim() !== "" ? "" : "Last Name is required"; //same logic as firstName
+    // Nested ternary operator for required and valid email format
     tempErrors.email = formData.email
-      ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+      ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) // regex for email format
         ? ""
         : "Email is not valid."
       : "Email is required.";
+    // Nested ternary operator for: if data is present, check if it's valid format
     tempErrors.phone = formData.phone
       ? /^[0-9]{10}$/.test(formData.phone)
         ? ""
         : "Phone number is not valid."
       : "";
-
+    //
+    //Check if any validation errors are present in tempErrors. If so, set formIsValid to false
     for (let error in tempErrors) {
       if (tempErrors[error] !== "") {
         formIsValid = false;
@@ -47,6 +49,7 @@ const Step2 = ({
     return formIsValid;
   };
 
+  // Takes the name of the field : true and adds it to the 'touched' state object
   const handleBlur = (event) => {
     const { name } = event.target;
     setTouched({
@@ -54,7 +57,7 @@ const Step2 = ({
       [name]: true,
     });
   };
-
+  //*
   React.useEffect(() => {
     if (currentStep !== 2) return;
     if (Object.keys(touched).length !== 0) validate();
