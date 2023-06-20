@@ -1,6 +1,6 @@
 import React from "react";
 import FormNavButtons from "../Shared/FormNavButtons";
-
+import { Link } from "react-router-dom";
 const Step5 = ({
   currentStep,
   formData,
@@ -14,6 +14,12 @@ const Step5 = ({
   return (
     <div>
       <div className="card">
+        <Link
+          to="/sightings"
+          className="card-cancel"
+        >
+          Cancel
+        </Link>
         <div className="heading-container">
           <p className="step-heading">Section 3 of 5:</p>
           <h3 className="form-heading">
