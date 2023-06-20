@@ -1,5 +1,6 @@
 import React from "react";
 import FormNavButtons from "../Shared/FormNavButtons";
+import { Link } from "react-router-dom";
 
 const Step9 = ({
   formData,
@@ -15,6 +16,12 @@ const Step9 = ({
   return (
     <div>
       <div className="card">
+        <Link
+          to="/sightings"
+          className="card-cancel"
+        >
+          Cancel
+        </Link>
         <h2>Comments:</h2>
         <textarea
           name="comments"
