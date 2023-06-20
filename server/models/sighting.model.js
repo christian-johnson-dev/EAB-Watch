@@ -9,7 +9,7 @@ const SightingSchema = new mongoose.Schema(
       phone: { type: String },
     },
     sighting: {
-      date: { type: Date },
+      date: { type: Date, required: true },
       location: { type: String },
       latitude: { type: Number },
       longitude: { type: Number },
@@ -26,7 +26,7 @@ const SightingSchema = new mongoose.Schema(
       images: [{ type: String }],
       classification: {
         type: String,
-        default: "pending species classification",
+        default: "pending classification",
       },
       status: {
         type: String,
