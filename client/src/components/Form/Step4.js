@@ -1,6 +1,7 @@
 import React from "react";
 import FormNavButtons from "../Shared/FormNavButtons";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
+import { Link } from "react-router-dom";
 
 const Step4 = ({
   formData,
@@ -66,6 +67,12 @@ const Step4 = ({
   return (
     <div>
       <div className="card">
+        <Link
+          to="/sightings"
+          className="card-cancel"
+        >
+          Cancel
+        </Link>
         <div className="heading-container">
           <p className="step-heading">Section 3 of 5:</p>
           <h3 className="form-heading">
