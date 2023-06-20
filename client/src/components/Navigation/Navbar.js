@@ -12,7 +12,7 @@ const Navbar = () => {
     <div className="realtive">
       <nav className="flex   bg-black p-6">
         {/* Responsive Navigation Container */}
-        <div className="container mx-auto flex justify-between items-center">
+        <div className="container mx-auto flex justify-between items-center ">
           {/* Branding Container*/}
           <div className="flex items-center flex-shrink-0">
             <img
@@ -23,12 +23,37 @@ const Navbar = () => {
             <h1 className="company-name">EAB Watch</h1>
           </div>
           {/* Desktop Menu Container */}
-          <div className="hidden lg:flex items-center">
-            <NavItem to="/report">Report Sighting</NavItem>
-            <NavItem to="/sightings">View Sightings</NavItem>
-            <NavItem to="/learn-to-report">Learn to Report</NavItem>
-            <NavItem to="/about">About Us</NavItem>
-            <NavItem to="/eab-info">EAB in Oregon</NavItem>
+          <div className="dt-menu-container">
+            <NavItem
+              className="dt-nav-item"
+              to="/report"
+            >
+              Report Sighting
+            </NavItem>
+            <NavItem
+              className="dt-nav-item"
+              to="/sightings"
+            >
+              View Sightings
+            </NavItem>
+            <NavItem
+              className="dt-nav-item"
+              to="/learn-to-report"
+            >
+              Learn to Report
+            </NavItem>
+            <NavItem
+              className="dt-nav-item"
+              to="/about"
+            >
+              About Us
+            </NavItem>
+            <NavItem
+              className="dt-nav-item"
+              to="/eab-info"
+            >
+              EAB in Oregon
+            </NavItem>
           </div>
           {/* Navigation */}
 
@@ -51,16 +76,42 @@ const Navbar = () => {
         </div>
       </nav>
       {/* Mobile Menu Container*/}
-      <div
-        className={`absolute w-full z-50 opacity-90 bg-black text-white block flex-grow transition-all ease-in-out duration-500 overflow-hidden ${
-          isOpen ? "h-5/6" : "h-0"
-        }`}
-      >
-        <NavItem to="/report">Report Sighting</NavItem>
-        <NavItem to="/sightings">View Sightings</NavItem>
-        <NavItem to="/learn-to-report">Learn to Report</NavItem>
-        <NavItem to="/about">About Us</NavItem>
-        <NavItem to="/eab-info">EAB in Oregon</NavItem>
+      <div className={`mb-menu-container ${isOpen ? "h-1/2" : "h-0"}`}>
+        <NavItem
+          className="mb-nav-item"
+          to="/report"
+          onClick={() => setIsOpen(false)}
+        >
+          Report Sighting
+        </NavItem>
+        <NavItem
+          className="mb-nav-item"
+          to="/sightings"
+          onClick={() => setIsOpen(false)}
+        >
+          View Sightings
+        </NavItem>
+        <NavItem
+          className="mb-nav-item"
+          to="/learn-to-report"
+          onClick={() => setIsOpen(false)}
+        >
+          Learn to Report
+        </NavItem>
+        <NavItem
+          className="mb-nav-item"
+          to="/about"
+          onClick={() => setIsOpen(false)}
+        >
+          About Us
+        </NavItem>
+        <NavItem
+          className="mb-nav-item"
+          to="/eab-info"
+          onClick={() => setIsOpen(false)}
+        >
+          EAB in Oregon
+        </NavItem>
       </div>
     </div>
   );
