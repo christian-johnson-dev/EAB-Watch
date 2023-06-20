@@ -1,5 +1,6 @@
 import React from "react";
 import FormNavButtons from "../Shared/FormNavButtons";
+import { Link } from "react-router-dom";
 
 const Step6 = ({
   formData,
@@ -13,6 +14,12 @@ const Step6 = ({
   return (
     <div>
       <div className="card">
+        <Link
+          to="/sightings"
+          className="card-cancel"
+        >
+          Cancel
+        </Link>
         <div className="heading-container">
           <p className="step-heading">Section 4 of 6:</p>
           <h3 className="form-heading">Ash Tree Identification</h3>
