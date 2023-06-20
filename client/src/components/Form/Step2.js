@@ -88,6 +88,7 @@ const Step2 = ({
             type="text"
             name="firstName"
             placeholder="First Name is required"
+            autoComplete="off"
             value={formData.firstName}
             onChange={handleChange}
             onBlur={handleBlur}
