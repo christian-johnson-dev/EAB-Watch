@@ -5,7 +5,6 @@
 @layer utilities {
   .underline-expand {
     position: relative;
-    padding-bottom: 0.5rem;
     /* background-color: #000; */
   }
 
@@ -45,7 +44,7 @@
   }
   .company-name {
     @apply font-sans font-medium  
-    text-3xl md:text-5xl lg:text-6xl 
+    text-2xl md:text-3xl lg:text-4xl 
     text-light;
   }
   /* -- Hamburger Button -- */
@@ -55,6 +54,20 @@
     border rounded-lg
     text-light border-light
     hover:text-teal-200 hover:border-teal-200;
+  }
+  .dt-menu-container {
+    @apply hidden lg:flex items-center 
+    gap-6 xl:gap-7;
+  }
+  .dt-nav-item {
+    @apply uppercase text-light  
+    lg:text-[15px] xl:text-xl;
+  }
+  .mb-menu-container {
+    @apply absolute md:w-[350px]  w-full md:right-4 px-10 z-50 bg-black rounded-b-3xl  transition-all ease-in-out duration-500 flex flex-col overflow-hidden justify-evenly uppercase;
+  }
+  .mb-nav-item {
+    @apply text-white mx-auto text-2xl  underline-expand;
   }
 
   /* =========== FORM - Card ========== */
@@ -97,7 +110,7 @@
 
   /* === Map Filters === */
   .marker-toggle-tab {
-    @apply hidden  bg-dark md:flex gap-4 justify-center  mx-auto  px-4 pt-3 rounded-t-[30px];
+    @apply bg-dark flex gap-2 md:gap-4 justify-center  mx-auto  px-4 pt-3 rounded-t-[30px] pb-2;
   }
 
   .marker-toggle {
@@ -105,16 +118,12 @@
     gap-1 md:gap-2 lg:gap-3 
     py-1.5 px-2 md:py-2 
     uppercase 
-    text-xs md:text-sm rounded-full;
+    text-xs md:text-sm rounded-full
+    mb-2 md:mb-0;
   }
-  .select-filter {
-    @apply py-2 px-6 mb-1 max-w-fit rounded-full;
-  }
-  .report-button-container {
-    @apply bg-dark rounded-t-full px-3 pt-3;
-  }
-  .report-button {
-    @apply flex items-center justify-center w-32 h-32 rounded-full bg-red-500 text-white font-bold text-xl uppercase tracking-wider;
+
+  .bottom-report-button {
+    @apply bg-red-600 text-light text-2xl uppercase text-center w-full md:max-w-max justify-center py-4 px-6 rounded-xl;
   }
 
   /* =========== SIGHTING MODAL ========== */
@@ -129,5 +138,9 @@
   }
   .indicators {
     @apply flex flex-wrap gap-2;
+  }
+
+  .text-section-heading {
+    @apply font-bold text-xl;
   }
 }
