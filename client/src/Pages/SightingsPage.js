@@ -122,7 +122,7 @@ const SightingsPage = () => {
           selectedStatus={selectedStatus}
           setSelectedSighting={setSelectedSighting}
         />
-        <div className="container mx-auto flex absolute md:bottom-0 bottom-[-60px] items-end justify-center pr-2">
+        <div className=" status-toggle-wrapper ">
           <StatusToggle
             selectedStatus={selectedStatus}
             setSelectedStatus={setSelectedStatus}
