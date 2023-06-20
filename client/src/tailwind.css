@@ -101,10 +101,10 @@
   }
   /* === Bottom (nav) === */
   .form-nav-container {
-    @apply flex justify-between items-center mt-12 gap-12;
+    @apply flex justify-center items-center mt-12 gap-12;
   }
   .form-nav-button {
-    @apply flex flex-grow bg-dark text-light items-center justify-center py-4 rounded-md shadow-md hover:bg-gray-800 transition-all duration-200 ease-in-out;
+    @apply flex flex-grow bg-dark text-light max-w-[40%] items-center justify-center py-4 rounded-md shadow-md hover:bg-gray-800 transition-all duration-200 ease-in-out;
   }
   /* =========== SIGHTINGS PAGE ========== */
 
@@ -142,5 +142,17 @@
 
   .text-section-heading {
     @apply font-bold text-xl;
+  }
+  .summary-subheading {
+    @apply text-lg font-bold;
+  }
+  .summary-subcontainer {
+    @apply border relative border-dark rounded-xl px-10 py-3 mb-1;
+  }
+  .edit-label {
+    @apply absolute top-2 right-2 text-xs italic;
+  }
+  .error {
+    @apply text-red-600;
   }
 }
