@@ -122,7 +122,7 @@ const SightingsPage = () => {
           selectedStatus={selectedStatus}
           setSelectedSighting={setSelectedSighting}
         />
-        <div className="container mx-auto flex absolute bottom-0 items-end justify-between pr-2">
+        <div className="container mx-auto flex absolute md:bottom-0 bottom-[-60px] items-end justify-center pr-2">
           <StatusToggle
             selectedStatus={selectedStatus}
             setSelectedStatus={setSelectedStatus}
@@ -130,10 +130,15 @@ const SightingsPage = () => {
             selectedOption={selectedOption}
             setSelectedOption={setSelectedOption}
           />
-          <div className="report-button-container">
-            <Link className="report-button">Report</Link>
-          </div>
         </div>
+      </div>
+      <div className=" flex justify-center px-[10%] pt-16 md:pt-6">
+        <Link
+          to={"/report"}
+          className="bottom-report-button "
+        >
+          Report Sighting
+        </Link>
       </div>
 
       <SightingModal
