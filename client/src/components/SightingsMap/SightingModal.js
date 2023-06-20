@@ -85,7 +85,7 @@ const SightingModal = ({
           {/* toggle between read and update */}
           <div className="read-update-toggle">
             <button
-              className="read-toggle bg-dark text-light px-4 py-2 rounded-full"
+              className="read-toggle bg-dark text-light px-4 py-2 rounded-full uppercase"
               onClick={() => setUpdateSectionActive(!isUpdateSectionActive)}
             >
               {isUpdateSectionActive ? "Read" : "Update"}
@@ -101,6 +101,7 @@ const SightingModal = ({
                 className="w-full h-32 border-2 border-gray-300 rounded-md resize-none p-2"
               />
               <button
+                className="w-5/6 bg-verified text-light rounded-full  py-4 uppercase absolute bottom-20  mx-auto mb-6 left-0 right-0"
                 onClick={async () => {
                   // Update the admin.response field in the DB
                   updateSighting(selectedSighting._id, adminResponse);
