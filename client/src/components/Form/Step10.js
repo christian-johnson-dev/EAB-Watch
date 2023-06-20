@@ -1,5 +1,6 @@
 import React from "react";
 import FormNavButtons from "../Shared/FormNavButtons";
+import { Link } from "react-router-dom";
 
 const Step10 = ({
   handleImageChange,
@@ -29,6 +30,12 @@ const Step10 = ({
   return (
     <div>
       <div className="card">
+        <Link
+          to="/sightings"
+          className="card-cancel"
+        >
+          Cancel
+        </Link>
         <h2>Images upload</h2>
         {/* Thumbnails */}
         <div className="thumbnails">
@@ -73,7 +80,6 @@ const Step10 = ({
           onChange={handleImageUpload}
         />
 
-        <button onClick={previous}>Previous</button>
         <FormNavButtons
           previous={previous}
           next={next}
