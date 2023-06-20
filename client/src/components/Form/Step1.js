@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Step1 = ({ next }) => {
   // Component Logic
   return (
-    <div>
-      <h2>Reporting an EAB</h2>
+    <div className="card">
+      <h2 className="w-full border-b-2 text-dark text-3xl mb-6">
+        Reporting an EAB
+      </h2>
       <p>This form will have 4 sections spread over 10 screens:</p>
       <ol>
         <li>Contact Info</li>
@@ -13,9 +16,19 @@ const Step1 = ({ next }) => {
         <li>Upload photos</li>
       </ol>
       <p>It should take about 5 minutes to complete.</p>
-      <button onClick={next}>Let's get started!</button>
+      <button
+        onClick={next}
+        className="bg-verified text-light font-bold py-2 px-4 rounded my-5 cursor-pointer"
+      >
+        Let's get started!
+      </button>
       {/* Link back to sightings */}
-      <a href="#">I'll come back later...</a>
+      <Link
+        to={"/sightings"}
+        className="bg-light border-2 rounded-md border-black text-dark mt-12 flex justify-center  w-1/2 mx-auto"
+      >
+        I'll come back later...
+      </Link>
       {/* Component Content */}
     </div>
   );
