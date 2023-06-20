@@ -263,7 +263,12 @@ const Step11 = ({
         >
           <strong>Images:</strong> {formData.images.length || "--"}
         </p>
-        <button onClick={handleSubmit}>Submit</button>
+        <button
+          className="submit"
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
         <FormNavButtons
           previous={previous}
           currentStep={currentStep}
