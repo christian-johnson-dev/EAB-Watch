@@ -1,13 +1,6 @@
 import React from "react";
-import { Listbox } from "@headlessui/react";
 
-const StatusToggle = ({
-  selectedStatus,
-  setSelectedStatus,
-  options,
-  selectedOption,
-  setSelectedOption,
-}) => {
+const StatusToggle = ({ selectedStatus, setSelectedStatus }) => {
   return (
     <div>
       <div className="marker-toggle-tab">
@@ -47,32 +40,6 @@ const StatusToggle = ({
           />
           Reclassified
         </label>
-      </div>
-      <div className="filter-select md:hidden">
-        <Listbox
-          value={selectedOption}
-          onChange={setSelectedOption}
-        >
-          <Listbox.Button className={selectedOption.className}>
-            {selectedOption.name}
-          </Listbox.Button>
-          <Listbox.Options>
-            {options.map((option) => (
-              <Listbox.Option
-                key={option.id}
-                value={option}
-                as={React.Fragment}
-                className={option.className}
-              >
-                {({ active, selected }) => (
-                  <li className={`${active ? " font-semibold" : ""}`}>
-                    {selected ? option.name : option.name}
-                  </li>
-                )}
-              </Listbox.Option>
-            ))}
-          </Listbox.Options>
-        </Listbox>
       </div>
     </div>
   );
