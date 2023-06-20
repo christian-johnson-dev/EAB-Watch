@@ -109,6 +109,11 @@
   /* =========== SIGHTINGS PAGE ========== */
 
   /* === Map Filters === */
+  .status-toggle-wrapper {
+    @apply container mx-auto absolute md:bottom-0 bottom-[-60px] justify-center pr-2;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   .marker-toggle-tab {
     @apply bg-dark flex gap-2 md:gap-4 justify-center  mx-auto  px-4 pt-3 rounded-t-[30px] pb-2;
   }
@@ -154,5 +159,8 @@
   }
   .error {
     @apply text-red-600;
+  }
+  .submit {
+    @apply bg-red-700 text-light rounded-full py-5 mt-4;
   }
 }
