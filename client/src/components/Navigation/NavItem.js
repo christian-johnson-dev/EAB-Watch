@@ -1,17 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavItem = ({ to, children }) => {
+const NavItem = ({ to, onClick, children, className }) => {
   // Component Logic
   return (
-    <div className="mr-4">
-      <Link
-        to={to}
-        className="underline-expand text-teal-400"
-      >
-        {children}
-      </Link>
-    </div>
+    <Link
+      to={to}
+      onClick={onClick}
+      className={className}
+    >
+      {children}
+    </Link>
   );
 };
 
