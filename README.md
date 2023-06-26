@@ -47,7 +47,7 @@ This is Christian Johnson's solo-project submission for the Coding Dojo Accelera
 
 ### Report Sighting (summary):
 
-Validations. Each summary section is clackable and takes the user back to the corresponding step
+Validations. Each summary section is clickable and takes the user back to the corresponding step
 ![Summary](/misc/Create_Sighting_4.png)
 Which has an updated nav button to take them back to the end summary instead of back through each step.
 ![Edit submission](/misc/Create_Sighting_5.png)
